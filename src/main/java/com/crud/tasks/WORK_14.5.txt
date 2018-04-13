@@ -1,0 +1,5 @@
+GET - https://scr.hu/8LXXGJ
+GET - https://scr.hu/56XXMR
+DELETE - https://scr.hu/BJzzqP
+PUT - https://scr.hu/z9ddw3
+POST - https://scr.hu/05kkyD
