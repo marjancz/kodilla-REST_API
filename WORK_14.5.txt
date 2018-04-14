@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+GET - https://scr.hu/8LXXGJ
+GET - https://scr.hu/56XXMR
+DELETE - https://scr.hu/BJzzqP
+PUT - https://scr.hu/z9ddw3
+POST - https://scr.hu/05kkyD
+=======
+GET - https://scr.hu/8LXXGJ
+GET - https://scr.hu/56XXMR
+DELETE - https://scr.hu/BJzzqP
+PUT - https://scr.hu/z9ddw3
+POST - https://scr.hu/05kkyD
+>>>>>>> 0cb9b15dc52e71420e5724aa169e099767a29c8e
