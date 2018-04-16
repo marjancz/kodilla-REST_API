@@ -1,0 +1,25 @@
+html {
+   background-color: #072C68;
+}
+
+body {
+   background-color: #01B2B5;
+   width: 600px;
+   margin: 0 auto;
+   padding: 0 40px 200px 40px;
+   border: 5px solid black;
+}
+
+h1 {
+   margin: 0;
+   padding: 20px 0;    
+   color: #FF0000;
+   text-shadow: -3px -3px 3px pink;
+   text-align: center;
+   font-size: 80px;
+}
+
+p {
+  color: blue;
+  font-size: 25px;
+}
