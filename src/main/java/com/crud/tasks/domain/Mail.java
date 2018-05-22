@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Mail {
     private String mailTo;
-    private String toCc;
+    //private String toCc;
     private String subject;
     private String message;
 }
