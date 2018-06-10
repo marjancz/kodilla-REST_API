@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 public class TrelloMapperTestSuite {
 
     @Autowired
-    TrelloMapper trelloMapper;
+    private TrelloMapper trelloMapper;
 
     @Test
     public void mapToBoards() {
