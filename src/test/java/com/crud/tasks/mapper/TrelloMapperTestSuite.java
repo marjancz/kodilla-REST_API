@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 
@@ -79,8 +80,8 @@ public class TrelloMapperTestSuite {
         List<TrelloListDto> trelloListDtos = trelloMapper.mapToListDto(trelloLists);
 
         //Then
-        assertEquals(1, trelloLists.size());
-        assertEquals("list", trelloLists.get(0).getName());
+        assertEquals(1, trelloListDtos.size());
+        assertEquals("list", trelloListDtos.get(0).getName());
         assertFalse(trelloListDtos.get(0).isClosed());
     }
 
