@@ -5,6 +5,7 @@ import com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
 import com.google.gson.Gson;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,34 +69,36 @@ public class TaskControllerTestSuite {
                 .andExpect(jsonPath("$[0].content", is("Task_content")));
     }
 
-//    @Test
-//    public void shouldgetTaskById() throws Exception {
-//        //Given
-//        Task task = new Task(1L, "Task_title", "Task_content");
-//        TaskDto taskDto = new TaskDto(1L, "Task_title", "Task_content");
-//        when(dbService.getTask(1L)).thenReturn(Optional.of(task));
-//        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
-//
-//        //When & Then
-//        mockMvc.perform(get("/v1/task/getTask/1")
-//                .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.id", is(1)))
-//                .andExpect(jsonPath("$.title", is("Task_title")))
-//                .andExpect(jsonPath("$.content", is("Task_content")));
-//    }
+    @Test
+    public void shouldgetTaskById() throws Exception {
+        //Given
+        Task task = new Task(1L, "Task_title", "Task_content");
+        TaskDto taskDto = new TaskDto(1L, "Task_title", "Task_content");
+        when(dbService.getTask(1L)).thenReturn(Optional.of(task));
+        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
 
-//    @Test
-//    public void shouldDeleteTaskById() throws Exception {
-//        //Given
-//        Task task = new Task(1L, "Task_title", "Task_content");
-//        dbService.deleteTask(task.getId());
-//
-//        //When & Then
-//        mockMvc.perform(delete("/v1/task/deleteTask/1")
-//                .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk());
-//    }
+        //When & Then
+        mockMvc.perform(get("/v1/task/getTask?taskId=1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.title", is("Task_title")))
+                .andExpect(jsonPath("$.content", is("Task_content")));
+    }
+
+    @Test
+    public void shouldDeleteTaskById() throws Exception {
+        //Given
+        Task task = new Task(1L, "Task_title", "Task_content");
+        dbService.saveTask(task);
+
+        //When & Then
+        mockMvc.perform(delete("/v1/task/deleteTask?taskId=1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+        Optional<Task> task1 = dbService.getTask(task.getId());
+        Assert.assertTrue(!task1.isPresent());
+    }
 
     @Test
     public void updateTask() throws Exception {
